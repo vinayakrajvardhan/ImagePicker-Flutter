@@ -1,5 +1,5 @@
 import 'dart:io';
-
+import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -62,12 +62,25 @@ class _ImagePageState extends State<ImagePage> {
               ElevatedButton(
                 onPressed: pickImageFromGallery,
                 child: Icon(
-                  Icons.browse_gallery_rounded,
+                  Icons.image,
                   size: 30,
                 ),
               ),
             ],
           ),
+          SizedBox(
+            height: 20,
+          ),
+          _image != null
+              ? ElevatedButton(
+                  onPressed: () {
+                    if (_image != null) {
+                      Share.shareFiles([_image!.path]);
+                    }
+                  },
+                  child: Text('Share the Pictures'),
+                )
+              : Container(),
         ],
       ),
     );
