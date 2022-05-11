@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.image_picker_project">
+ <uses-permission
+     android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+     android:maxSdkVersion="18" />
    <application
         android:label="image_picker_project"
         android:name="${applicationName}"
